@@ -1,0 +1,20 @@
+management: 
+  endpoint:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - env
+spring:
+  application:
+    name: sabre-webservice-core
+  profiles:
+    active: ${ENVIRONMENT_SPRING_PROFILE:nonprod}
+  cloud:
+    config:
+      enabled: true
+      uri: ${CONFIG_SERVER_HOST}
+      username: ${CONFIG_SERVER_USER}
+      password: ${CONFIG_SERVER_PASSWORD}
